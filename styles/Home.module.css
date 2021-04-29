@@ -34,7 +34,7 @@
 }
 
 .title a {
-  color: #0070f3;
+  @apply text-red-600 hover:text-green-600;
   text-decoration: none;
 }
 
