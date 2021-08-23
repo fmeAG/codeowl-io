@@ -1,8 +1,8 @@
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
-import Image from 'next/image';
 import Link from 'next/link';
 import React, { Fragment } from 'react';
+import { Logo } from './Logo';
 
 const navigation = [
   { name: 'Home', href: '/' },
@@ -25,8 +25,8 @@ export function Navbar(): JSX.Element {
               <div className="h-full w-48 relative">
                 <Link href="/">
                   <a title="Homepage">
-                    <span className="sr-only">Workflow</span>
-                    <Image src="/logo.svg" layout="fill" />
+                    <span className="sr-only">Rapid Review</span>
+                    <Logo colorClass="text-white hover:text-gray-300" />
                   </a>
                 </Link>
               </div>
