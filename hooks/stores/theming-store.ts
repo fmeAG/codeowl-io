@@ -6,6 +6,6 @@ interface IThemingStore {
 }
 
 export const useThemingStore = create<IThemingStore>((set) => ({
-  browserColor: 'rgb(152,0,0)',
+  browserColor: 'rgb(17, 24, 39)',
   setBrowserColor: (browserColor) => set({ browserColor }),
 }));

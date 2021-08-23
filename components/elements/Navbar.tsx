@@ -1,21 +1,25 @@
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
 import Link from 'next/link';
-import React, { Fragment } from 'react';
+import { useRouter } from 'next/router';
+import React, { Fragment, useEffect } from 'react';
+import { useNavStore } from '../../hooks/stores/nav-store';
+import { useThemingStore } from '../../hooks/stores/theming-store';
+import { classNames } from '../../utils/classnames';
 import { Logo } from './Logo';
 
-const navigation = [
-  { name: 'Home', href: '/' },
-  { name: 'Services', href: '/services' },
-  { name: 'Team', href: '/team' },
-  { name: 'Contact', href: '/contact' },
-  { name: 'Company', href: 'https://fme.de' },
-];
-
 export function Navbar(): JSX.Element {
+  const { topNav } = useNavStore();
+  const { setBrowserColor } = useThemingStore();
+  const { route } = useRouter();
+
+  useEffect(() => {
+    setBrowserColor('rgb(255,255,255)');
+  }, []);
+
   return (
     <Popover as="header" className="relative">
-      <div className="bg-gray-900 pt-6">
+      <div className="bg-white pt-6 pb-3">
         <nav
           className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
           aria-label="Global"
@@ -26,7 +30,7 @@ export function Navbar(): JSX.Element {
                 <Link href="/">
                   <a title="Homepage">
                     <span className="sr-only">Rapid Review</span>
-                    <Logo colorClass="text-white hover:text-gray-300" />
+                    <Logo colorClass="text-gray-600 hover:text-gray-800" />
                   </a>
                 </Link>
               </div>
@@ -38,14 +42,21 @@ export function Navbar(): JSX.Element {
               </div>
             </div>
             <div className="flex items-center space-x-3 hidden md:flex md:ml-10 space-x-8 ">
-              {navigation.map((item) => (
-                <Link key={item.name} href={item.href}>
-                  <a className="text-base font-medium text-white hover:text-gray-300">
-                    {item.name}
+              {topNav.map((item) => (
+                <Link key={item.label} href={item.href}>
+                  <a
+                    className={classNames(
+                      route === item.href
+                        ? 'text-gray-800 hover:text-gray-900 font-bold'
+                        : 'text-gray-700 hover:text-gray-800',
+                      'text-base font-medium'
+                    )}
+                  >
+                    {item.label}
                   </a>
                 </Link>
               ))}
-              <Link href={'#'}>
+              <Link href={'/contact'}>
                 <a className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
                   Contact us
                 </a>
@@ -86,16 +97,21 @@ export function Navbar(): JSX.Element {
             </div>
             <div className="pt-5 pb-6">
               <div className="px-2 space-y-1">
-                {navigation.map((item) => (
-                  <Link key={item.name} href={item.href}>
-                    <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
-                      {item.name}
+                {topNav.map((item) => (
+                  <Link key={item.label} href={item.href}>
+                    <a
+                      className={classNames(
+                        route === item.href ? 'text-red-700' : '',
+                        'block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50'
+                      )}
+                    >
+                      {item.label}
                     </a>
                   </Link>
                 ))}
               </div>
               <div className="mt-6 px-5">
-                <Link href="#">
+                <Link href="/contact">
                   <a className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700">
                     Contact us
                   </a>
