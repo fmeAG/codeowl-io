@@ -1,5 +1,7 @@
 import { Popover, Transition } from '@headlessui/react';
 import { MenuIcon, XIcon } from '@heroicons/react/solid';
+import Image from 'next/image';
+import Link from 'next/link';
 import React, { Fragment } from 'react';
 
 const navigation = [
@@ -20,15 +22,13 @@ export function Navbar(): JSX.Element {
         >
           <div className="flex justify-between flex-1">
             <div className="flex items-center justify-between w-full md:w-auto">
-              <div>
-                <a href="#">
-                  <span className="sr-only">Workflow</span>
-                  <img
-                    className="h-8 w-auto sm:h-10"
-                    src="https://tailwindui.com/img/logos/workflow-mark-teal-200-cyan-400.svg"
-                    alt=""
-                  />
-                </a>
+              <div className="h-full w-48 relative">
+                <Link href="/">
+                  <a title="Homepage">
+                    <span className="sr-only">Workflow</span>
+                    <Image src="/logo.svg" layout="fill" />
+                  </a>
+                </Link>
               </div>
               <div className="-mr-2 flex items-center md:hidden">
                 <Popover.Button className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
@@ -39,20 +39,17 @@ export function Navbar(): JSX.Element {
             </div>
             <div className="flex items-center space-x-3 hidden md:flex md:ml-10 space-x-8 ">
               {navigation.map((item) => (
-                <a
-                  key={item.name}
-                  href={item.href}
-                  className="text-base font-medium text-white hover:text-gray-300"
-                >
-                  {item.name}
-                </a>
+                <Link key={item.name} href={item.href}>
+                  <a className="text-base font-medium text-white hover:text-gray-300">
+                    {item.name}
+                  </a>
+                </Link>
               ))}
-              <a
-                href="#"
-                className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700"
-              >
-                Contact us
-              </a>
+              <Link href={'#'}>
+                <a className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
+                  Contact us
+                </a>
+              </Link>
             </div>
           </div>
         </nav>
@@ -90,22 +87,19 @@ export function Navbar(): JSX.Element {
             <div className="pt-5 pb-6">
               <div className="px-2 space-y-1">
                 {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50"
-                  >
-                    {item.name}
-                  </a>
+                  <Link key={item.name} href={item.href}>
+                    <a className="block px-3 py-2 rounded-md text-base font-medium text-gray-900 hover:bg-gray-50">
+                      {item.name}
+                    </a>
+                  </Link>
                 ))}
               </div>
               <div className="mt-6 px-5">
-                <a
-                  href="#"
-                  className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700"
-                >
-                  Contact us
-                </a>
+                <Link href="#">
+                  <a className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700">
+                    Contact us
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
