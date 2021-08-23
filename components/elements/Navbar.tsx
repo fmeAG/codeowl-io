@@ -6,6 +6,7 @@ import React, { Fragment, useEffect } from 'react';
 import { useNavStore } from '../../hooks/stores/nav-store';
 import { useThemingStore } from '../../hooks/stores/theming-store';
 import { classNames } from '../../utils/classnames';
+import { Button } from '../components/Button';
 import { Logo } from './Logo';
 
 export function Navbar(): JSX.Element {
@@ -35,7 +36,7 @@ export function Navbar(): JSX.Element {
                 </Link>
               </div>
               <div className="-mr-2 flex items-center md:hidden">
-                <Popover.Button className="bg-gray-900 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-800 focus:outline-none focus:ring-2 focus-ring-inset focus:ring-white">
+                <Popover.Button className="inline-flex items-center px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700">
                   <span className="sr-only">Open main menu</span>
                   <MenuIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
@@ -56,11 +57,9 @@ export function Navbar(): JSX.Element {
                   </a>
                 </Link>
               ))}
-              <Link href={'/contact'}>
-                <a className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md text-white bg-gray-600 hover:bg-gray-700">
-                  Contact us
-                </a>
-              </Link>
+              <Button type="LinkButton" href="/contact">
+                Contact us
+              </Button>
             </div>
           </div>
         </nav>
@@ -77,19 +76,15 @@ export function Navbar(): JSX.Element {
       >
         <Popover.Panel
           focus
-          className="absolute top-0 inset-x-0 p-2 transition transform origin-top md:hidden"
+          className="absolute top-0 z-10 inset-x-0 p-2 transition transform origin-top md:hidden"
         >
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
               <div>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-mark-teal-500-cyan-600.svg"
-                  alt=""
-                />
+                <Logo colorClass={'text-gray-600'} />
               </div>
               <div className="-mr-2">
-                <Popover.Button className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-cyan-600">
+                <Popover.Button className="inline-flex items-center px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700">
                   <span className="sr-only">Close menu</span>
                   <XIcon className="h-6 w-6" aria-hidden="true" />
                 </Popover.Button>
@@ -111,11 +106,13 @@ export function Navbar(): JSX.Element {
                 ))}
               </div>
               <div className="mt-6 px-5">
-                <Link href="/contact">
-                  <a className="block text-center w-full py-3 px-4 rounded-md shadow bg-gradient-to-r from-teal-500 to-cyan-600 text-white font-medium hover:from-teal-600 hover:to-cyan-700">
-                    Contact us
-                  </a>
-                </Link>
+                <Button
+                  type="LinkButton"
+                  href="/contact"
+                  className="w-full text-center"
+                >
+                  Contact us
+                </Button>
               </div>
             </div>
           </div>
