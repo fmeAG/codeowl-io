@@ -15,12 +15,12 @@ export function Navbar(): JSX.Element {
   const { route } = useRouter();
 
   useEffect(() => {
-    setBrowserColor('rgb(255,255,255)');
+    setBrowserColor('rgb(33,33,33)');
   }, []);
 
   return (
     <Popover as="header" className="relative">
-      <div className="bg-white pt-6 pb-3">
+      <div className="bg-gray-900 pt-6 pb-3">
         <nav
           className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
           aria-label="Global"
@@ -31,7 +31,7 @@ export function Navbar(): JSX.Element {
                 <Link href="/">
                   <a title="Homepage">
                     <span className="sr-only">Rapid Review</span>
-                    <Logo colorClass="text-gray-600 hover:text-gray-800" />
+                    <Logo colorClass="text-white hover:text-gray-300" />
                   </a>
                 </Link>
               </div>
@@ -48,8 +48,8 @@ export function Navbar(): JSX.Element {
                   <a
                     className={classNames(
                       route === item.href
-                        ? 'text-gray-800 hover:text-gray-900 font-bold'
-                        : 'text-gray-700 hover:text-gray-800',
+                        ? 'text-white hover:text-gray-200 font-bold'
+                        : 'text-gray-200 hover:text-gray-400',
                       'text-base font-medium'
                     )}
                   >
