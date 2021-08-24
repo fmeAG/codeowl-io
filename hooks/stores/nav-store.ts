@@ -12,7 +12,7 @@ interface INavStore {
 export const useNavStore = create<INavStore>((set) => ({
   topNav: [
     { label: 'Home', href: '/' },
-    { label: 'Services', href: '/services' },
+    { label: 'Services', href: '/#services' },
     { label: 'Team', href: '/team' },
     { label: 'Company', href: 'https://fme.de' },
   ],

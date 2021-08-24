@@ -1,10 +1,12 @@
 import { IHeroSection } from '../components/elements/HeroSection';
 import { Logo } from '../components/elements/LogoRow';
+import { Service } from '../components/elements/Services';
 import { apiGraphQLClient } from '../global/graphql';
 
 export async function apiFindDefaultPageContent(path: string): Promise<{
   heroSection: IHeroSection;
   logoCloudItems: Logo[];
+  services: Service[];
 }> {
   return await apiGraphQLClient.request(
     `
@@ -25,6 +27,14 @@ export async function apiFindDefaultPageContent(path: string): Promise<{
       height
     }
     title
+  }
+  services(where: {pageLocation: "/"}) {
+    id
+    title
+    icon {
+      url
+    }
+    description
   }
 }
   `

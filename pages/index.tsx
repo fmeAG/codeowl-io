@@ -1,15 +1,16 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import React, { useEffect } from 'react';
 import { apiFindDefaultPageContent } from '../api-functions/hero-sections';
-import Features from '../components/elements/Features';
 import { IHeroSection } from '../components/elements/HeroSection';
 import { Logo } from '../components/elements/LogoRow';
+import Services, { Service } from '../components/elements/Services';
 import { PageLayout } from '../components/pages/PageLayout';
 import { useSeoStore } from '../hooks/stores/seo-store';
 
 interface Props {
   heroSection: IHeroSection;
   logoItems: Logo[];
+  services: Service[];
 }
 
 export async function getStaticProps(
@@ -26,11 +27,16 @@ export async function getStaticProps(
     props: {
       heroSection: pageContent.heroSection,
       logoItems: pageContent.logoCloudItems,
+      services: pageContent.services,
     },
   };
 }
 
-export default function Home({ heroSection, logoItems }: Props): JSX.Element {
+export default function Home({
+  heroSection,
+  logoItems,
+  services,
+}: Props): JSX.Element {
   const { setSeo } = useSeoStore();
   useEffect(() => {
     setSeo('Custom Software Reviews', 'Custom Software Review Team');
@@ -38,7 +44,7 @@ export default function Home({ heroSection, logoItems }: Props): JSX.Element {
 
   return (
     <PageLayout heroSection={heroSection} logoItems={logoItems}>
-      <Features />
+      {services && <Services services={services} />}
     </PageLayout>
   );
 }

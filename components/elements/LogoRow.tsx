@@ -28,6 +28,7 @@ function LogoItem({ logo }: { logo: Logo }): JSX.Element {
       <Image
         src={logo.logo.url}
         alt={logo.title}
+        title={logo.title}
         layout="fill"
         width={logo.logo.width}
         height={logo.logo.height}

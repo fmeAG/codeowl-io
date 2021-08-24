@@ -40,7 +40,7 @@ export default function Footer(): JSX.Element {
             <p className="text-gray-500 text-base">
               Reviewing your Software, processes and your complete workflows.
               <br />
-              With passion from Braunschweig, Germany.
+              With ♥️ in Braunschweig, Germany.
             </p>
           </div>
         </div>
