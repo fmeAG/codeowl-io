@@ -24,15 +24,17 @@ export function LogoRow({ logos }: Props): JSX.Element {
 
 function LogoItem({ logo }: { logo: Logo }): JSX.Element {
   return (
-    <li className="flex flex-grow flex-shrink-0 lg:flex-grow-0 relative w-12 h-12 lg:w-18 lg:h-18">
-      <Image
-        src={logo.logo.url}
-        alt={logo.title}
-        title={logo.title}
-        layout="fill"
-        width={logo.logo.width}
-        height={logo.logo.height}
-      />
+    <li className="group">
+      <div className="flex flex-grow flex-shrink-0 lg:flex-grow-0 relative w-12 h-12 lg:w-18 lg:h-18">
+        <Image
+          src={logo.logo.url}
+          alt={logo.title}
+          title={logo.title}
+          layout="fill"
+          width={logo.logo.width}
+          height={logo.logo.height}
+        />
+      </div>
     </li>
   );
 }

@@ -18,16 +18,16 @@ export default function Services({ services }: Props): JSX.Element {
       className="relative bg-white py-16 sm:py-24 lg:py-32"
     >
       <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-        <h2 className="text-base font-semibold tracking-wider text-indigo-600 uppercase">
-          Our services
+        <h2 className="text-base font-semibold tracking-wider text-red-600 uppercase">
+          Leistungsbausteine
         </h2>
         <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-          What we offer
+          für Software Reviews
         </p>
         <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-          Here comes some text about what we do and why you can read it here.
-          Rest ist Lorem ipsum dolor sit amet, consectetur adipiscing elit. Illa
-          videamus, quae a te de amicitia dicta sunt.
+          Um das Review Ihrer Software perfekt auf Ihre Bedürfnisse
+          zugeschnitten anbieten zu können, bieten wir Ihnen folgende Bausteine
+          zur Wahl an
         </p>
         <div className="mt-12">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -36,8 +36,11 @@ export default function Services({ services }: Props): JSX.Element {
                 <div className="flow-root bg-gray-50 rounded-lg px-6 pb-8">
                   <div className="-mt-6">
                     <div>
-                      <span className="inline-flex items-center justify-center p-3 bg-indigo-500 rounded-md shadow-lg">
-                        <div className="h-6 w-6 relative" aria-hidden="true">
+                      <span className="inline-flex items-center justify-center p-3 bg-red-500 rounded-md shadow-lg">
+                        <div
+                          className="h-6 w-6 relative text-white"
+                          aria-hidden="true"
+                        >
                           <Image src={service.icon.url} layout="fill" />
                         </div>
                       </span>

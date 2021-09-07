@@ -37,11 +37,9 @@ export function HeroSection({
             <Link href={notification.href}>
               <a className="inline-flex items-center border-black border bg-white rounded-full text-gray-800 p-1 pr-2 sm:text-base lg:text-sm xl:text-base hover:text-black hover:border-red-500">
                 <span className="px-3 py-0.5 text-xs font-semibold leading-5 uppercase tracking-wide bg-gradient-to-r from-teal-500 to-cyan-600 rounded-full">
-                  {notification.title}TEST
+                  {notification.title}
                 </span>
-                <span className="ml-4 text-sm">
-                  {notification.actionTitle}OK..
-                </span>
+                <span className="ml-4 text-sm">{notification.actionTitle}</span>
                 <ChevronRightIcon
                   className="ml-2 w-5 h-5 text-gray-500"
                   aria-hidden="true"
@@ -52,7 +50,7 @@ export function HeroSection({
           <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-gray-200 sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
             <span className="block">{title}</span>
             {subTitle && (
-              <span className="pb-3 block bg-clip-text text-blue-500 sm:pb-5">
+              <span className="pb-3 block bg-clip-text text-red-500 sm:pb-5">
                 {subTitle}
               </span>
             )}
