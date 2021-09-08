@@ -20,7 +20,7 @@ export function PageLayout({
   return (
     <>
       <Navbar />
-      <main>
+      <main className="pb-16 sm:pb-24 lg:pb-32">
         {(heroSection || logoItems) && (
           <section className="pt-10 bg-gray-900 sm:pt-16 lg:pt-8 pb-8 lg:pb-14 lg:overflow-hidden">
             <div className="mx-auto max-w-7xl lg:px-8 space-y-8">

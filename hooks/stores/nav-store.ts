@@ -11,7 +11,8 @@ interface INavStore {
 
 export const useNavStore = create<INavStore>((set) => ({
   topNav: [
-    { label: 'Services', href: '/#services' },
-    { label: 'Company', href: 'https://fme.de' },
+    { label: 'Leistungen', href: '/#services' },
+    { label: 'Pakete', href: '/#plans' },
+    { label: 'Unternehmen', href: 'https://fme.de' },
   ],
 }));

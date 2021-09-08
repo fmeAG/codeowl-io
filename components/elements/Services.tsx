@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { SectionTitle } from '../components/SectionTitle';
 
 export interface Service {
   id: string;
@@ -15,20 +16,15 @@ export default function Services({ services }: Props): JSX.Element {
   return (
     <section
       id="services"
-      className="relative bg-white py-16 sm:py-24 lg:py-32"
+      className="relative bg-white pt-16 sm:pt-24 lg:pt-32"
     >
       <div className="mx-auto max-w-md px-4 text-center sm:max-w-3xl sm:px-6 lg:px-8 lg:max-w-7xl">
-        <h2 className="text-base font-semibold tracking-wider text-red-600 uppercase">
-          Leistungsbausteine
-        </h2>
-        <p className="mt-2 text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl">
-          für Software Reviews
-        </p>
-        <p className="mt-5 max-w-prose mx-auto text-xl text-gray-500">
-          Um das Review Ihrer Software perfekt auf Ihre Bedürfnisse
-          zugeschnitten anbieten zu können, bieten wir Ihnen folgende Bausteine
-          zur Wahl an
-        </p>
+        <SectionTitle
+          h2="Leistungsbausteine"
+          subTitle="für Software Reviews"
+          desription="Um das Review Ihrer Software perfekt auf Ihre Bedürfnisse zugeschnitten
+        anbieten zu können, bieten wir Ihnen folgende Bausteine zur Wahl an"
+        />
         <div className="mt-12">
           <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {services.map((service) => (
