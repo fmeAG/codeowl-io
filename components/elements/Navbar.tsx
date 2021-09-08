@@ -31,7 +31,10 @@ export function Navbar(): JSX.Element {
                 <Link href="/">
                   <a title="Homepage">
                     <span className="sr-only">Rapid Review</span>
-                    <Logo colorClass="text-white hover:text-gray-300" />
+                    <Logo
+                      colorClass="text-white hover:text-gray-300"
+                      fmeStyle={'light'}
+                    />
                   </a>
                 </Link>
               </div>
@@ -58,7 +61,7 @@ export function Navbar(): JSX.Element {
                 </Link>
               ))}
               <Button type="LinkButton" href="/contact">
-                Contact us
+                Kontakt
               </Button>
             </div>
           </div>
@@ -111,7 +114,7 @@ export function Navbar(): JSX.Element {
                   href="/contact"
                   className="w-full text-center"
                 >
-                  Contact us
+                  Kontakt
                 </Button>
               </div>
             </div>
