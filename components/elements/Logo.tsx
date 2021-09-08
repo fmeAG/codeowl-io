@@ -1,8 +1,8 @@
 import Image from 'next/image';
 import React from 'react';
+import fmeDark from '../../public/fme-dark.png';
+import fmeLight from '../../public/fme-light.png';
 import { classNames } from '../../utils/classnames';
-import fmeDark from './fme-dark.png';
-import fmeLight from './fme-light.png';
 
 interface LogoProps {
   colorClass: string;
