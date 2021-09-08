@@ -94,7 +94,7 @@ export default function Contact({ plans }: Props): JSX.Element {
               </dl>
               <p className="mt-6 text-base text-gray-500">
                 Wir stellen ein!{' '}
-                <Link href="#">
+                <Link href="https://fme-karriere.de">
                   <a className="font-medium text-gray-700 underline">
                     Besuch unsere Karriere-Seite
                   </a>
