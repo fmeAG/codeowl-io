@@ -1,7 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import fmeDark from '../../public/fme-dark.png';
-import fmeLight from '../../public/fme-light.png';
 import { classNames } from '../../utils/classnames';
 
 interface LogoProps {
@@ -37,7 +35,11 @@ export function Logo({
         <span className="inline-block">by</span>
         <div className="relative w-16 h-8 inline-block">
           <Image
-            src={fmeStyle === 'light' ? fmeLight : fmeDark}
+            src={
+              fmeStyle === 'light'
+                ? 'https://media.graphcms.com/pq8cmTJySheQe1YjYirz'
+                : 'https://media.graphcms.com/s8EJuXI5QG67hILOq58X'
+            }
             layout="fill"
           />
         </div>
