@@ -28,13 +28,13 @@ export default function Footer(): JSX.Element {
             </p>
           </div>
         </div>
-        <div className="mt-12 grid grid-cols-2 gap-8 xl:mt-0 xl:col-span-2 pb-8">
-          <div className="md:grid md:grid-cols-2 md:gap-8 mb-16 mt-8 col-span-2">
+        <div className="mt-12 xl:mt-0 pb-8">
+          <div className="mb-16 mt-8 col-span-2">
             <div>
-              <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                Unternehmen
-              </h3>
-              <ul role="list" className="mt-4 space-y-4">
+              <ul
+                role="list"
+                className="mt-4 w-full flex justify-between px-16"
+              >
                 {footerNavigation.company.map((item) => (
                   <li key={item.name}>
                     <a
