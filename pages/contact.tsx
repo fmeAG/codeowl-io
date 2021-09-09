@@ -14,6 +14,11 @@ interface Props {
   plans: SmallPlan[];
 }
 
+// Phone link (tel:+49531238540)
+const encodedPhone = 'dGVsOis0OTUzMTIzODU0MA==';
+// Mail link (mailto:info@fme.de)
+const encodedMail = 'bWFpbHRvOmluZm9AZm1lLmRl';
+
 export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<Props>> {
@@ -33,6 +38,7 @@ export default function Contact({ plans }: Props): JSX.Element {
   const { setSeo } = useSeoStore();
   const { query } = useRouter();
   const [plan, setPlan] = useState<SmallPlan>();
+  const { push } = useRouter();
 
   useEffect(() => {
     setPlan(plans.find((value) => value.id === query.plan));
@@ -56,7 +62,9 @@ export default function Contact({ plans }: Props): JSX.Element {
               </h2>
               <p className="mt-3 text-lg leading-6 text-gray-500">
                 <span className="block">
-                  Sie interessieren sich für das {plan?.title}?
+                  {plan
+                    ? `Sie interessieren sich für das {plan?.title}?`
+                    : 'Sie interessieren sich für ein Review?'}
                 </span>
                 <span className="block mt-2">
                   Dann kontaktieren Sie uns hier, gerne über das
@@ -78,7 +86,14 @@ export default function Contact({ plans }: Props): JSX.Element {
                       className="flex-shrink-0 h-6 w-6 text-gray-400"
                       aria-hidden="true"
                     />
-                    <span className="ml-3">+49 531 2 38 54-0</span>
+                    <span
+                      onClick={async () => {
+                        await push(atob(encodedPhone));
+                      }}
+                      className="ml-3 cursor-pointer hover:text-red-500"
+                    >
+                      +49 531 2 38 54-0
+                    </span>
                   </dd>
                 </div>
                 <div className="mt-3">
@@ -88,7 +103,14 @@ export default function Contact({ plans }: Props): JSX.Element {
                       className="flex-shrink-0 h-6 w-6 text-gray-400"
                       aria-hidden="true"
                     />
-                    <span className="ml-3">info(at)fme.de</span>
+                    <span
+                      onClick={async () => {
+                        await push(atob(encodedMail));
+                      }}
+                      className="ml-3 cursor-pointer hover:text-red-500"
+                    >
+                      info(at)fme.de
+                    </span>
                   </dd>
                 </div>
               </dl>
