@@ -132,6 +132,12 @@ export default function Contact({ plans }: Props): JSX.Element {
                 method="POST"
                 className="grid grid-cols-1 gap-y-6"
               >
+                <input
+                  name="plan"
+                  id="plan"
+                  type="hidden"
+                  value={plan?.title}
+                />
                 <div>
                   <label htmlFor="full-name" className="sr-only">
                     Name
