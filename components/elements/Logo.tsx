@@ -35,6 +35,7 @@ export function Logo({
         <span className="inline-block">by</span>
         <div className="relative w-16 h-8 inline-block">
           <Image
+            alt="fme AG"
             src={
               fmeStyle === 'light'
                 ? 'https://media.graphcms.com/pq8cmTJySheQe1YjYirz'

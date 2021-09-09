@@ -62,7 +62,7 @@ export function HeroSection({
       </div>
       <div className="mt-12 lg:m-0 relative h-96 mx-6 lg:mx-0">
         <div className="mx-auto max-w-md px-4 sm:max-w-2xl sm:px-6 lg:max-w-none lg:px-0">
-          <Image src={url} layout="fill" />
+          <Image src={url} layout="fill" alt={title} />
         </div>
       </div>
     </div>

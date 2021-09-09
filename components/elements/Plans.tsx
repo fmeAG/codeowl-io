@@ -48,7 +48,7 @@ export function Plans({ plans }: Props): JSX.Element {
                 {plan.title}
               </h3>
               {plan.featured ? (
-                <p className="absolute top-0 py-1.5 px-4 bg-red-500 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
+                <p className="absolute top-0 py-1.5 px-4 bg-red-700 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
                   Am beliebtesten
                 </p>
               ) : null}
