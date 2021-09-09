@@ -15,7 +15,7 @@ export function Navbar(): JSX.Element {
   const { route } = useRouter();
 
   useEffect(() => {
-    setBrowserColor('rgb(33,33,33)');
+    setBrowserColor('rgb(17, 24, 39)');
   }, []);
 
   return (
