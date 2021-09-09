@@ -49,7 +49,7 @@ export default function Footer(): JSX.Element {
             </div>
           </div>
           <div className="border-t border-gray-200 pt-8 col-span-2">
-            <p className="text-base text-gray-400 xl:text-center">
+            <p className="text-base text-gray-600 xl:text-center">
               &copy; {new Date().getUTCFullYear()} fme AG
             </p>
           </div>

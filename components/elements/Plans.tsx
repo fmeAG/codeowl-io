@@ -87,7 +87,7 @@ export function Plans({ plans }: Props): JSX.Element {
               <a
                 className={classNames(
                   plan.featured
-                    ? 'bg-red-500 text-white hover:bg-red-600'
+                    ? 'bg-red-700 text-white hover:bg-red-800'
                     : 'bg-red-50 text-red-700 hover:bg-red-100',
                   'mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
                 )}
