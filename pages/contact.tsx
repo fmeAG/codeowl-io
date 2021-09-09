@@ -63,7 +63,7 @@ export default function Contact({ plans }: Props): JSX.Element {
               <p className="mt-3 text-lg leading-6 text-gray-500">
                 <span className="block">
                   {plan
-                    ? `Sie interessieren sich für das {plan?.title}?`
+                    ? `Sie interessieren sich für das ${plan?.title}?`
                     : 'Sie interessieren sich für ein Review?'}
                 </span>
                 <span className="block mt-2">
