@@ -49,6 +49,7 @@ export default function Services({ services }: Props): JSX.Element {
                     </h3>
                     <p className="mt-5 text-base text-gray-500 text-left">
                       <ReactMarkdown
+                        className="space-y-2"
                         components={{
                           ul: (props) => {
                             return (

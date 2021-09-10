@@ -26,7 +26,7 @@ export function Plans({ plans }: Props): JSX.Element {
     >
       <SectionTitle
         h2="Leistungspakete"
-        subTitle="Unser Review in einem Paket"
+        subTitle="Review as a Package (RaaP)"
         desription="Durch transparent geschnittene Pakete erhalten Sie beste Leistung zu einem absehbaren Preis."
       />
       <div
