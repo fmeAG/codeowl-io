@@ -29,11 +29,11 @@ export default function Footer(): JSX.Element {
           </div>
         </div>
         <div className="mt-12 xl:mt-0 pb-8">
-          <div className="mb-16 mt-8 col-span-2">
-            <div>
+          <div className="mb-8 sm:mb-16 mt-8 col-span-2">
+            <div className="border-gray-100 border-t sm:border-none">
               <ul
                 role="list"
-                className="mt-4 w-full flex justify-between px-16"
+                className="mt-4 w-full flex justify-between md:px-16 flex-col sm:flex-row space-y-3 sm:space-y-0"
               >
                 {footerNavigation.company.map((item) => (
                   <li key={item.name}>
