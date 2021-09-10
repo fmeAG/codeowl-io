@@ -1,4 +1,7 @@
 import Image from 'next/image';
+import React from 'react';
+import ReactMarkdown from 'react-markdown';
+import { classNames } from '../../utils/classnames';
 import { SectionTitle } from '../components/SectionTitle';
 
 export interface Service {
@@ -44,8 +47,35 @@ export default function Services({ services }: Props): JSX.Element {
                     <h3 className="mt-8 text-lg font-medium text-gray-900 tracking-tight">
                       {service.title}
                     </h3>
-                    <p className="mt-5 text-base text-gray-500">
-                      {service.description}
+                    <p className="mt-5 text-base text-gray-500 text-left">
+                      <ReactMarkdown
+                        components={{
+                          ul: (props) => {
+                            return (
+                              <ul
+                                className={classNames(
+                                  props.className,
+                                  'list-disc pl-5'
+                                )}
+                                {...props}
+                              />
+                            );
+                          },
+                          ol: (props) => {
+                            return (
+                              <ol
+                                className={classNames(
+                                  props.className,
+                                  'pl-6 list-decimal'
+                                )}
+                                {...props}
+                              />
+                            );
+                          },
+                        }}
+                      >
+                        {service.description}
+                      </ReactMarkdown>
                     </p>
                   </div>
                 </div>
