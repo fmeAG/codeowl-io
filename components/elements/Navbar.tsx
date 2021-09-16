@@ -60,7 +60,7 @@ export function Navbar(): JSX.Element {
                   </a>
                 </Link>
               ))}
-              <Button type="LinkButton" href="/contact">
+              <Button type="LinkButton" href="https://www.fme.de/kontakt/">
                 Kontakt
               </Button>
             </div>
@@ -111,7 +111,7 @@ export function Navbar(): JSX.Element {
               <div className="mt-6 px-5">
                 <Button
                   type="LinkButton"
-                  href="/contact"
+                  href="https://www.fme.de/kontakt/"
                   className="w-full text-center"
                 >
                   Kontakt

@@ -83,7 +83,8 @@ export function Plans({ plans }: Props): JSX.Element {
               </ul>
             </div>
 
-            <Link href={`/contact?plan=${plan.id}`}>
+            {/*<!--<Link href={`/contact?plan=${plan.id}`}>-->*/}
+            <Link href="https://www.fme.de/kontakt/">
               <a
                 className={classNames(
                   plan.featured
