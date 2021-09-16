@@ -48,6 +48,10 @@ export default function Contact({ plans }: Props): JSX.Element {
     setSeo('Contact', 'Contact the custom Software Review Team');
   }, []);
 
+  useEffect(() => {
+    push('https://www.fme.de/kontakt/');
+  });
+
   return (
     <PageLayout>
       <div className="relative bg-white">
