@@ -38,6 +38,8 @@ export default function Contact({ plans }: Props): JSX.Element {
   const { setSeo } = useSeoStore();
   const { query } = useRouter();
   const [plan, setPlan] = useState<SmallPlan>();
+  const [status, setStatus] = useState<'success' | 'error'>();
+  const [formMessage, setFormMessage] = useState<string>();
   const { push } = useRouter();
 
   useEffect(() => {
@@ -45,12 +47,13 @@ export default function Contact({ plans }: Props): JSX.Element {
   }, [query]);
 
   useEffect(() => {
-    setSeo('Contact', 'Contact the custom Software Review Team');
-  }, []);
+    setStatus(query.status as 'success' | 'error');
+    setFormMessage(query.message as string);
+  });
 
   useEffect(() => {
-    push('https://www.fme.de/kontakt/');
-  });
+    setSeo('Contact', 'Contact the custom Software Review Team');
+  }, []);
 
   return (
     <PageLayout>
@@ -132,7 +135,7 @@ export default function Contact({ plans }: Props): JSX.Element {
           <div className="bg-white py-16 px-4 sm:px-6 lg:col-span-3 lg:py-24 lg:px-8 xl:pl-12">
             <div className="max-w-lg mx-auto lg:max-w-none">
               <form
-                action="#"
+                action="/api/form"
                 method="POST"
                 className="grid grid-cols-1 gap-y-6"
               >
