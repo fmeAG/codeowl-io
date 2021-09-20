@@ -1,7 +1,7 @@
 interface Props {
   h2: string;
   subTitle: string;
-  desription: string;
+  desription: string | JSX.Element;
 }
 
 export function SectionTitle({ subTitle, desription, h2 }: Props): JSX.Element {

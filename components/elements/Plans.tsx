@@ -27,7 +27,22 @@ export function Plans({ plans }: Props): JSX.Element {
       <SectionTitle
         h2="Leistungspakete"
         subTitle="Review as a Package (RaaP)"
-        desription="Durch transparent geschnittene Pakete erhalten Sie beste Leistung zu einem absehbaren Preis."
+        desription={
+          <>
+            <span className="block">
+              Alle nachfolgenden Pakete enthalten die oben genannten
+              Leistungsbausteine.
+            </span>
+            <span className="block">
+              Die Paketgrößen richten sich nach Komplexität der Use Cases und
+              Software.
+            </span>
+            <span className="block">
+              Wir entscheiden zusammen in einem Vorgespräch, welches Paket passt
+              und berücksichtigen auch gerne individuelle Wünsche.
+            </span>
+          </>
+        }
       />
       <div
         className={`mt-24 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-${Math.min(
@@ -70,17 +85,19 @@ export function Plans({ plans }: Props): JSX.Element {
               </div>
               <p className="mt-6 text-gray-500">{plan.description}</p>
 
-              <ul role="list" className="mt-6 space-y-6">
-                {plan.bulletPoints.map((item) => (
-                  <li key={item} className="flex">
-                    <CheckIcon
-                      className="flex-shrink-0 w-6 h-6 text-red-500"
-                      aria-hidden="true"
-                    />
-                    <span className="ml-3 text-gray-500">{item}</span>
-                  </li>
-                ))}
-              </ul>
+              {plan.bulletPoints?.length > 0 && (
+                <ul role="list" className="mt-6 space-y-6">
+                  {plan.bulletPoints.map((item) => (
+                    <li key={item} className="flex">
+                      <CheckIcon
+                        className="flex-shrink-0 w-6 h-6 text-red-500"
+                        aria-hidden="true"
+                      />
+                      <span className="ml-3 text-gray-500">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
 
             {/*<!--<Link href={`/contact?plan=${plan.id}`}>-->*/}
@@ -90,7 +107,8 @@ export function Plans({ plans }: Props): JSX.Element {
                   plan.featured
                     ? 'bg-red-700 text-white hover:bg-red-800'
                     : 'bg-red-50 text-red-700 hover:bg-red-100',
-                  'mt-8 block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
+                  plan.bulletPoints?.length ? 'mt-8' : 'mt-4',
+                  'block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
                 )}
               >
                 Kontakt aufnehmen
