@@ -137,7 +137,7 @@ export default function Contact({ plans }: Props): JSX.Element {
               <form
                 action="/api/form"
                 method="POST"
-                className="grid grid-cols-1 gap-y-6"
+                className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-3"
               >
                 <input
                   name="plan"
@@ -146,29 +146,45 @@ export default function Contact({ plans }: Props): JSX.Element {
                   value={plan?.title}
                 />
                 <div>
-                  <label htmlFor="full-name" className="sr-only">
-                    Name
+                  <label htmlFor="given-name" className="sr-only">
+                    Vorname
                   </label>
                   <input
                     type="text"
-                    name="full-name"
-                    id="full-name"
-                    autoComplete="name"
+                    name="given-name"
+                    id="given-name"
+                    required
+                    autoComplete="given-name"
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
-                    placeholder="Name"
+                    placeholder="Vorname"
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="sr-only">
-                    Firma
+                  <label htmlFor="family-name" className="sr-only">
+                    Nachname
                   </label>
                   <input
-                    id="company"
-                    name="company"
                     type="text"
-                    autoComplete="company"
+                    name="family-name"
+                    id="family-name"
+                    required
+                    autoComplete="family-name"
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
-                    placeholder="Firma"
+                    placeholder="Nachname"
+                  />
+                </div>
+                <div className="md:col-span-2">
+                  <label htmlFor="organization" className="sr-only">
+                    Unternehmen
+                  </label>
+                  <input
+                    id="organization"
+                    name="organization"
+                    type="text"
+                    required
+                    autoComplete="organization"
+                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
+                    placeholder="Unternehmen"
                   />
                 </div>
                 <div>
@@ -179,6 +195,7 @@ export default function Contact({ plans }: Props): JSX.Element {
                     id="email"
                     name="email"
                     type="email"
+                    required
                     autoComplete="email"
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                     placeholder="Email"
@@ -192,12 +209,13 @@ export default function Contact({ plans }: Props): JSX.Element {
                     type="text"
                     name="phone"
                     id="phone"
+                    required
                     autoComplete="tel"
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                     placeholder="Telefon"
                   />
                 </div>
-                <div>
+                <div className="md:col-span-2">
                   <label htmlFor="message" className="sr-only">
                     Nachricht
                   </label>
@@ -205,6 +223,7 @@ export default function Contact({ plans }: Props): JSX.Element {
                     id="message"
                     name="message"
                     rows={4}
+                    required={!plan}
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border border-gray-300 rounded-md"
                     placeholder="Nachricht"
                     defaultValue={''}
