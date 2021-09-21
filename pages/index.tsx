@@ -20,11 +20,6 @@ export async function getStaticProps(
 ): Promise<GetStaticPropsResult<Props>> {
   const pageContent = await apiFindDefaultPageContent('/');
 
-  console.log(
-    'Got following pageContent for path "/"',
-    JSON.stringify(pageContent)
-  );
-
   return {
     props: {
       heroSection: pageContent.heroSection,

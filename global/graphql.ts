@@ -1,10 +1,6 @@
 import { GraphQLClient } from 'graphql-request';
+import { isDev, isPreview } from './constants';
 
 export const apiGraphQLClient = new GraphQLClient(process.env.GRAPHCMS_URL, {
-  headers:
-    process.env.NODE_ENV === 'development' ||
-    process.env.VERCEL_ENV === 'preview' ||
-    process.env.VERCEL_ENV === 'development'
-      ? { 'gcms-stage': 'DRAFT' }
-      : {},
+  headers: isDev || isPreview ? { 'gcms-stage': 'DRAFT' } : {},
 });
