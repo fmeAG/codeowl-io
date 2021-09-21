@@ -116,7 +116,7 @@ export default function Contact({ plans }: Props): JSX.Element {
                       }}
                       className="ml-3 cursor-pointer hover:text-red-500"
                     >
-                      info(at)fme.de
+                      info@fme.de
                     </span>
                   </dd>
                 </div>
@@ -156,6 +156,19 @@ export default function Contact({ plans }: Props): JSX.Element {
                     autoComplete="name"
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                     placeholder="Name"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="sr-only">
+                    Firma
+                  </label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    autoComplete="company"
+                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
+                    placeholder="Firma"
                   />
                 </div>
                 <div>
