@@ -2,23 +2,42 @@ import axios from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect from 'next-connect';
 import { formGuid, portalId } from '../../api-functions/form';
-import { isProduction } from '../../global/constants';
+import { isPreview, isProduction, LegalConsent } from '../../global/constants';
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>();
 
+handler.get((req, res) => {
+  return res.redirect('/contact');
+});
+
 handler.post((req, res) => {
-  console.log(req.body);
   const optionalPlan = req.body.plan;
   const formData = {
-    givenName: req.body['given-name'],
-    family: req.body['family-name'],
-    organization: req.body.organization,
-    email: req.body.email,
-    phone: req.body.phone,
-    message:
-      (optionalPlan ? 'PLAN: ' + optionalPlan + '\n' : '') + req.body.message,
+    fields: [
+      { name: 'firstname', value: req.body['given-name'] },
+      { name: 'lastname', value: req.body['family-name'] },
+      { name: 'company', value: req.body.organization },
+      { name: 'email', value: req.body.email },
+      { name: 'land', value: 'Deutschland' },
+      {
+        name: 'message',
+        value:
+          (optionalPlan ? 'PLAN: ' + optionalPlan + '\n' : '') +
+          req.body.message,
+      },
+    ],
+    context: {
+      pageUrl: 'https://' + req.headers.host + req.url,
+      pageName: 'Code-Owl: Kontakt',
+    },
+    legalConsentOptions: {
+      consent: {
+        consentToProcess: true,
+        text: LegalConsent.text,
+      },
+    },
   };
-  (isProduction
+  (isProduction || isPreview
     ? axios.post(
         `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formGuid}`,
         formData

@@ -6,6 +6,7 @@ import React, { useEffect, useState } from 'react';
 import { apiFindDefaultPageContent } from '../api-functions/hero-sections';
 import { Plan } from '../components/elements/Plans';
 import { PageLayout } from '../components/pages/PageLayout';
+import { LegalConsent } from '../global/constants';
 import { useSeoStore } from '../hooks/stores/seo-store';
 
 type SmallPlan = Pick<Plan, 'id' | 'title'>;
@@ -228,6 +229,19 @@ export default function Contact({ plans }: Props): JSX.Element {
                     placeholder="Nachricht"
                     defaultValue={''}
                   />
+                </div>
+                <div className="md:col-span-2">
+                  {LegalConsent.text.split(LegalConsent.replace)[0]}
+                  <Link href={LegalConsent.url}>
+                    <a
+                      className="text-blue-500 hover:text-blue-700"
+                      target="_blank"
+                      rel="nofollow"
+                    >
+                      {LegalConsent.replace}
+                    </a>
+                  </Link>
+                  {LegalConsent.text.split(LegalConsent.replace)[1]}
                 </div>
                 <div>
                   <button
