@@ -13,6 +13,7 @@ handler.get((req, res) => {
 handler.post((req, res) => {
   const optionalPlan = req.body.plan;
   const formData = {
+    submittedAt: new Date().valueOf(),
     fields: [
       { name: 'firstname', value: req.body['given-name'] },
       { name: 'lastname', value: req.body['family-name'] },

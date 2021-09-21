@@ -188,7 +188,7 @@ export default function Contact({ plans }: Props): JSX.Element {
                     placeholder="Unternehmen"
                   />
                 </div>
-                <div>
+                <div className="col-span-2">
                   <label htmlFor="email" className="sr-only">
                     Email
                   </label>
@@ -200,20 +200,6 @@ export default function Contact({ plans }: Props): JSX.Element {
                     autoComplete="email"
                     className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
                     placeholder="Email"
-                  />
-                </div>
-                <div>
-                  <label htmlFor="phone" className="sr-only">
-                    Telefon
-                  </label>
-                  <input
-                    type="text"
-                    name="phone"
-                    id="phone"
-                    required
-                    autoComplete="tel"
-                    className="block w-full shadow-sm py-3 px-4 placeholder-gray-500 focus:ring-red-500 focus:border-red-500 border-gray-300 rounded-md"
-                    placeholder="Telefon"
                   />
                 </div>
                 <div className="md:col-span-2">
