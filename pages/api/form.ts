@@ -1,4 +1,5 @@
 import axios, { AxiosError } from 'axios';
+import { characterEntities } from 'character-entities';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect from 'next-connect';
 import { formGuid, portalId } from '../../api-functions/form';
@@ -47,10 +48,10 @@ handler.post((req, res) => {
         resolve();
       })
   )
-    .then(() => res.redirect('/'))
+    .then(() => res.status(202).send(null))
     .catch((err: AxiosError) => {
       console.log('Got following error', err);
-      res.redirect('/contact');
+      res.status(500).send(err.response.data);
     });
 });
 
