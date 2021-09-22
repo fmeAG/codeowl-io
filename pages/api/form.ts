@@ -1,5 +1,4 @@
-import axios from 'axios';
-import { characterEntities } from 'character-entities';
+import axios, { AxiosError } from 'axios';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect from 'next-connect';
 import { formGuid, portalId } from '../../api-functions/form';
@@ -14,7 +13,6 @@ handler.get((req, res) => {
 handler.post((req, res) => {
   const optionalPlan = req.body.plan;
   const formData = {
-    submittedAt: new Date().valueOf(),
     fields: [
       { name: 'firstname', value: req.body['given-name'] },
       { name: 'lastname', value: req.body['family-name'] },
@@ -29,7 +27,7 @@ handler.post((req, res) => {
       },
     ],
     context: {
-      pageUrl: 'https://' + req.headers.host + req.url,
+      pageUri: 'https://' + req.headers.host + req.url,
       pageName: 'Code-Owl: Kontakt',
     },
     legalConsentOptions: {
@@ -50,7 +48,7 @@ handler.post((req, res) => {
       })
   )
     .then(() => res.redirect('/'))
-    .catch((err) => {
+    .catch((err: AxiosError) => {
       console.log('Got following error', err);
       res.redirect('/contact');
     });
