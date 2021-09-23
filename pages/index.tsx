@@ -1,6 +1,9 @@
 import { GetStaticPropsContext, GetStaticPropsResult } from 'next';
 import React, { useEffect } from 'react';
-import { apiFindDefaultPageContent } from '../api-functions/hero-sections';
+import {
+  apiFindDefaultPageContent,
+  PageProperty,
+} from '../api-functions/hero-sections';
 import { IHeroSection } from '../components/elements/HeroSection';
 import { Logo } from '../components/elements/LogoRow';
 import { Plan, Plans } from '../components/elements/Plans';
@@ -13,6 +16,7 @@ interface Props {
   logoItems: Logo[];
   services: Service[];
   plans: Plan[];
+  pageProperty?: PageProperty;
 }
 
 export async function getStaticProps(
@@ -26,6 +30,7 @@ export async function getStaticProps(
       logoItems: pageContent.logoCloudItems,
       services: pageContent.services,
       plans: pageContent.plans,
+      pageProperty: pageContent.pageProperty,
     },
   };
 }
@@ -35,11 +40,15 @@ export default function Home({
   logoItems,
   services,
   plans,
+  pageProperty,
 }: Props): JSX.Element {
   const { setSeo } = useSeoStore();
   useEffect(() => {
-    setSeo('Custom Software Reviews', 'Custom Software Review Team');
-  }, []);
+    setSeo(
+      pageProperty?.seoTitle ?? 'Custom Software Reviews',
+      pageProperty?.seoDescription ?? 'Custom Software Review Team'
+    );
+  }, [pageProperty]);
 
   return (
     <PageLayout heroSection={heroSection} logoItems={logoItems}>

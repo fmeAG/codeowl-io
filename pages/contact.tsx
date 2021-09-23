@@ -5,7 +5,10 @@ import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { apiFindDefaultPageContent } from '../api-functions/hero-sections';
+import {
+  apiFindDefaultPageContent,
+  PageProperty,
+} from '../api-functions/hero-sections';
 import { Plan } from '../components/elements/Plans';
 import { PageLayout } from '../components/pages/PageLayout';
 import { LegalConsent } from '../global/constants';
@@ -15,6 +18,7 @@ type SmallPlan = Pick<Plan, 'id' | 'title'>;
 
 interface Props {
   plans: SmallPlan[];
+  pageProperty?: PageProperty;
 }
 
 // Phone link (tel:+49531238540)
@@ -25,7 +29,7 @@ const encodedMail = 'bWFpbHRvOmluZm9AZm1lLmRl';
 export async function getStaticProps(
   context: GetStaticPropsContext
 ): Promise<GetStaticPropsResult<Props>> {
-  const pageContent = await apiFindDefaultPageContent('/');
+  const pageContent = await apiFindDefaultPageContent('/contact');
 
   return {
     props: {
@@ -33,11 +37,12 @@ export async function getStaticProps(
         id: value.id,
         title: value.title,
       })),
+      pageProperty: pageContent.pageProperty,
     },
   };
 }
 
-export default function Contact({ plans }: Props): JSX.Element {
+export default function Contact({ plans, pageProperty }: Props): JSX.Element {
   const { setSeo } = useSeoStore();
   const { query, push } = useRouter();
   const [plan, setPlan] = useState<SmallPlan>();
@@ -52,8 +57,11 @@ export default function Contact({ plans }: Props): JSX.Element {
   }, [query]);
 
   useEffect(() => {
-    setSeo('Contact', 'Contact the custom Software Review Team');
-  }, []);
+    setSeo(
+      pageProperty?.seoTitle ?? 'Contact',
+      pageProperty?.seoDescription ?? 'Contact the custom Software Review Team'
+    );
+  }, [pageProperty]);
 
   const onSubmit = (data) => {
     return axios.post('/api/form', data);
