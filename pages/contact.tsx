@@ -46,14 +46,10 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
   const { setSeo } = useSeoStore();
   const { query, push } = useRouter();
   const [plan, setPlan] = useState<SmallPlan>();
-  const [status, setStatus] = useState<'success' | 'error'>();
-  const [formMessage, setFormMessage] = useState<string>();
   const { handleSubmit, register, formState } = useForm();
 
   useEffect(() => {
     setPlan(plans.find((value) => value.id === query.plan));
-    setStatus(query.status as 'success' | 'error');
-    setFormMessage(query.message as string);
   }, [query]);
 
   useEffect(() => {
