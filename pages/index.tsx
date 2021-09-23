@@ -1,4 +1,4 @@
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next';
+import { GetStaticPropsResult } from 'next';
 import React, { useEffect } from 'react';
 import {
   apiFindDefaultPageContent,
@@ -19,9 +19,7 @@ interface Props {
   pageProperty?: PageProperty;
 }
 
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<Props>> {
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const pageContent = await apiFindDefaultPageContent('/');
 
   return {

@@ -1,6 +1,6 @@
 import { MailIcon, PhoneIcon } from '@heroicons/react/solid';
 import axios from 'axios';
-import { GetStaticPropsContext, GetStaticPropsResult } from 'next';
+import { GetStaticPropsResult } from 'next';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react';
@@ -26,9 +26,7 @@ const encodedPhone = 'dGVsOis0OTUzMTIzODU0MA==';
 // Mail link (mailto:info@fme.de)
 const encodedMail = 'bWFpbHRvOmluZm9AZm1lLmRl';
 
-export async function getStaticProps(
-  context: GetStaticPropsContext
-): Promise<GetStaticPropsResult<Props>> {
+export async function getStaticProps(): Promise<GetStaticPropsResult<Props>> {
   const pageContent = await apiFindDefaultPageContent('/contact');
 
   return {
