@@ -1,5 +1,4 @@
 import axios, { AxiosError } from 'axios';
-import { characterEntities } from 'character-entities';
 import { NextApiRequest, NextApiResponse } from 'next';
 import nextConnect from 'next-connect';
 import { formGuid, portalId } from '../../api-functions/form';
