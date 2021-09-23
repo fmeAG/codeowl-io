@@ -39,11 +39,10 @@ export async function getStaticProps(
 
 export default function Contact({ plans }: Props): JSX.Element {
   const { setSeo } = useSeoStore();
-  const { query } = useRouter();
+  const { query, push } = useRouter();
   const [plan, setPlan] = useState<SmallPlan>();
   const [status, setStatus] = useState<'success' | 'error'>();
   const [formMessage, setFormMessage] = useState<string>();
-  const { push } = useRouter();
   const { handleSubmit, register, formState } = useForm();
 
   useEffect(() => {
