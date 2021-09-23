@@ -15,7 +15,7 @@ export function PageHead(): JSX.Element {
 
   return (
     <Head>
-      <title>fme AG • {title}</title>
+      <title>Code Owl • {title} (fme AG)</title>
       <meta name="description" content={description} />
       {/*TODO: change theme color*/}
       <meta name="theme-color" content={browserColor} />

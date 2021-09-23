@@ -1,5 +1,4 @@
 import { WithForcedChildren } from '../../global/interfaces';
-import { useSeoStore } from '../../hooks/stores/seo-store';
 import Footer from '../elements/Footer';
 import { HeroSection, IHeroSection } from '../elements/HeroSection';
 import { Logo, LogoRow } from '../elements/LogoRow';
@@ -15,8 +14,6 @@ export function PageLayout({
   heroSection,
   logoItems,
 }: Props): JSX.Element {
-  const { title } = useSeoStore();
-
   return (
     <>
       <Navbar />

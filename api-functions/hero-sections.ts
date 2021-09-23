@@ -4,11 +4,17 @@ import { Plan } from '../components/elements/Plans';
 import { Service } from '../components/elements/Services';
 import { apiGraphQLClient } from '../global/graphql';
 
+export interface PageProperty {
+  seoDescription: string;
+  seoTitle: string;
+}
+
 export async function apiFindDefaultPageContent(path: string): Promise<{
   heroSection: IHeroSection;
   logoCloudItems: Logo[];
   services: Service[];
   plans: Plan[];
+  pageProperty?: PageProperty;
 }> {
   return await apiGraphQLClient.request(
     `
@@ -46,6 +52,10 @@ export async function apiFindDefaultPageContent(path: string): Promise<{
     featured
     ptCount
     consultantCount
+  }
+  pageProperty(where: {pageLocation: "${path}"}) {
+    seoTitle
+    seoDescription
   }
 }
   `
