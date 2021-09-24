@@ -173,7 +173,7 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
                     {...register('plan', { value: plan?.title })}
                     type="hidden"
                   />
-                  <div className="col-span-1">
+                  <div className="col-span-2 md:col-span-1">
                     <label htmlFor="given-name" className="sr-only">
                       Vorname
                     </label>
@@ -185,7 +185,7 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
                       placeholder="Vorname"
                     />
                   </div>
-                  <div className="col-span-1">
+                  <div className="col-span-2 md:col-span-1">
                     <label htmlFor="family-name" className="sr-only">
                       Nachname
                     </label>
@@ -197,7 +197,7 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
                       placeholder="Nachname"
                     />
                   </div>
-                  <div className="md:col-span-2">
+                  <div className="col-span-2">
                     <label htmlFor="organization" className="sr-only">
                       Unternehmen
                     </label>
@@ -221,7 +221,7 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
                       placeholder="Email"
                     />
                   </div>
-                  <div className="md:col-span-2">
+                  <div className="col-span-2">
                     <label htmlFor="message" className="sr-only">
                       Nachricht
                     </label>
@@ -233,7 +233,7 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
                       defaultValue={''}
                     />
                   </div>
-                  <div className="md:col-span-2">
+                  <div className="col-span-2">
                     {LegalConsent.text.split(LegalConsent.replace)[0]}
                     <Link href={LegalConsent.url}>
                       <a
@@ -246,7 +246,7 @@ export default function Contact({ plans, pageProperty }: Props): JSX.Element {
                     </Link>
                     {LegalConsent.text.split(LegalConsent.replace)[1]}
                   </div>
-                  <div>
+                  <div className="col-span-2 flex justify-end">
                     <button
                       disabled={formState.isSubmitting || formState.isSubmitted}
                       type="submit"
