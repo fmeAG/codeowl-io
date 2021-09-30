@@ -39,7 +39,8 @@ export default function Footer(): JSX.Element {
                   <li key={item.name}>
                     <a
                       href={item.href}
-                      className="text-base text-gray-500 hover:text-gray-900"
+                      target={item.href.startsWith('http') ? '_blank' : '_self'}
+                      className="text-base text-gray-500 hover:text-gray-900" rel="noreferrer"
                     >
                       {item.name}
                     </a>

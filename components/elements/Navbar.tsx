@@ -48,7 +48,7 @@ export function Navbar(): JSX.Element {
             <div className="flex items-center space-x-3 hidden md:flex md:ml-10 space-x-8 ">
               {topNav.map((item) => (
                 <Link key={item.label} href={item.href}>
-                  <a
+                  <a target={item.href.startsWith('http') ? '_blank' : '_self'}
                     className={classNames(
                       route === item.href
                         ? 'text-white hover:text-gray-200 font-bold'
