@@ -19,7 +19,9 @@ export default function Footer(): JSX.Element {
       <div className="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-2">
-            <Logo colorClass={'text-black-500'} />
+           <div className="h-10 w-36 relative">
+            <Logo/>
+            </div>
             <p className="text-gray-500 text-base">
               Wir bewerten die Qualität Ihrer Softwarelösung und geben
               Ratschläge und Lösungsansätze zur Verbesserung.
