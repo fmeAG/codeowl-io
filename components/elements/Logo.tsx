@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import React from 'react';
-import { classNames } from '../../utils/classnames';
 
 interface LogoProps {
   fmeStyle?: 'light' | 'dark';
