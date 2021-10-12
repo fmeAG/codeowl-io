@@ -5,9 +5,7 @@ interface LogoProps {
   fmeStyle?: 'light' | 'dark';
 }
 
-export function Logo({
-  fmeStyle = 'dark',
-}: LogoProps): JSX.Element {
+export function Logo({ fmeStyle = 'dark' }: LogoProps): JSX.Element {
   return (
     <div className={'flex flex-col w-40'}>
       <Image
