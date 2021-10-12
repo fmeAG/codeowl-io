@@ -27,12 +27,11 @@ export function Navbar(): JSX.Element {
         >
           <div className="flex justify-between flex-1">
             <div className="flex items-center justify-between w-full md:w-auto">
-              <div className="h-full w-48 relative">
+              <div className="h-full w-36 relative">
                 <Link href="/">
                   <a title="Homepage">
                     <span className="sr-only">Rapid Review</span>
                     <Logo
-                      colorClass="text-white hover:text-gray-300"
                       fmeStyle={'light'}
                     />
                   </a>
@@ -48,7 +47,7 @@ export function Navbar(): JSX.Element {
             <div className="flex items-center space-x-3 hidden md:flex md:ml-10 space-x-8 ">
               {topNav.map((item) => (
                 <Link key={item.label} href={item.href}>
-                  <a
+                  <a target={item.href.startsWith('http') ? '_blank' : '_self'}
                     className={classNames(
                       route === item.href
                         ? 'text-white hover:text-gray-200 font-bold'
@@ -83,8 +82,8 @@ export function Navbar(): JSX.Element {
         >
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
-              <div>
-                <Logo colorClass={'text-gray-600'} />
+              <div className="h-10 w-36 relative">
+                <Logo/>
               </div>
               <div className="-mr-2">
                 <Popover.Button className="inline-flex items-center px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700">
