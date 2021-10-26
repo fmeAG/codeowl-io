@@ -1,4 +1,5 @@
 import { AppProps } from 'next/app';
+import GoogleTagManager from '../components/components/GoogleTagManager';
 import { PageHead } from '../components/elements/PageHead';
 import '../styles/globals.css';
 
@@ -7,7 +8,9 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <>
       <PageHead />
       <div className="bg-white relative overflow-hidden">
-        <Component {...pageProps} />
+        <GoogleTagManager>
+          <Component {...pageProps} />
+        </GoogleTagManager>
       </div>
     </>
   );
