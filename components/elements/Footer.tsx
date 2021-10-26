@@ -66,9 +66,3 @@ export default function Footer(): JSX.Element {
     </footer>
   );
 }
-
-//TODO: Anpassungen aus Marketing-JF
-/*
-  - powered by fme neben Logo
-  - Brand name (entweder Rapid erklären/aufzeigen oder sonst ändern - Software Rapid review? #Ideensammlung dafür
- */
