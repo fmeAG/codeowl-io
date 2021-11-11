@@ -20,20 +20,18 @@ export function Navbar(): JSX.Element {
 
   return (
     <Popover as="header" className="relative">
-      <div className="bg-gray-900 pt-6 pb-3">
+      <div className="bg-dark-background pt-6 pb-3">
         <nav
           className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
           aria-label="Global"
         >
           <div className="flex justify-between flex-1">
             <div className="flex items-center justify-between w-full md:w-auto">
-              <div className="h-full w-36 relative">
+              <div>
                 <Link href="/">
                   <a title="Homepage">
                     <span className="sr-only">Rapid Review</span>
-                    <Logo
-                      fmeStyle={'light'}
-                    />
+                    <Logo fmeStyle={'light'} />
                   </a>
                 </Link>
               </div>
@@ -47,7 +45,8 @@ export function Navbar(): JSX.Element {
             <div className="flex items-center space-x-3 hidden md:flex md:ml-10 space-x-8 ">
               {topNav.map((item) => (
                 <Link key={item.label} href={item.href}>
-                  <a target={item.href.startsWith('http') ? '_blank' : '_self'}
+                  <a
+                    target={item.href.startsWith('http') ? '_blank' : '_self'}
                     className={classNames(
                       route === item.href
                         ? 'text-white hover:text-gray-200 font-bold'
@@ -59,9 +58,15 @@ export function Navbar(): JSX.Element {
                   </a>
                 </Link>
               ))}
-              <Button type="LinkButton" href="/contact">
-                Kontakt
-              </Button>
+              <Link key="LinkButton" href="/#contact">
+                <a
+                  className={
+                    'w-full text-center block px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700'
+                  }
+                >
+                  Kontakt
+                </a>
+              </Link>
             </div>
           </div>
         </nav>
@@ -82,9 +87,7 @@ export function Navbar(): JSX.Element {
         >
           <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
             <div className="px-5 pt-4 flex items-center justify-between">
-              <div className="h-10 w-36 relative">
-                <Logo/>
-              </div>
+              <Logo />
               <div className="-mr-2">
                 <Popover.Button className="inline-flex items-center px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700">
                   <span className="sr-only">Close menu</span>
@@ -108,13 +111,15 @@ export function Navbar(): JSX.Element {
                 ))}
               </div>
               <div className="mt-6 px-5">
-                <Button
-                  type="LinkButton"
-                  href="/contact"
-                  className="w-full text-center"
-                >
-                  Kontakt
-                </Button>
+                <Link key="LinkButton" href="/#contact">
+                  <a
+                    className={
+                      'w-full text-center block px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700'
+                    }
+                  >
+                    Kontakt
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

@@ -55,7 +55,7 @@ export function Plans({ plans }: Props): JSX.Element {
             key={plan.id}
             className={classNames(
               'relative p-8 bg-white border rounded-2xl shadow-sm flex flex-col',
-              plan.featured ? 'border-red-500' : 'border-gray-200'
+              plan.featured ? 'border-primary' : 'border-gray-200'
             )}
           >
             <div className="flex-1">
@@ -63,7 +63,7 @@ export function Plans({ plans }: Props): JSX.Element {
                 {plan.title}
               </h3>
               {plan.featured ? (
-                <p className="absolute top-0 py-1.5 px-4 bg-red-700 rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
+                <p className="absolute top-0 py-1.5 px-4 bg-gradient-to-br from-primary to-secondary rounded-full text-xs font-semibold uppercase tracking-wide text-white transform -translate-y-1/2">
                   Am beliebtesten
                 </p>
               ) : null}
@@ -104,13 +104,13 @@ export function Plans({ plans }: Props): JSX.Element {
               <a
                 className={classNames(
                   plan.featured
-                    ? 'bg-red-700 text-white hover:bg-red-800'
-                    : 'bg-red-50 text-red-700 hover:bg-red-100',
+                    ? 'bg-gradient-to-br from-primary to-secondary text-white hover:bg-primary-dark'
+                    : 'bg-red-50 text-primary-dark hover:bg-red-100',
                   plan.bulletPoints?.length ? 'mt-8' : 'mt-4',
                   'block w-full py-3 px-6 border border-transparent rounded-md text-center font-medium'
                 )}
               >
-                Kontakt aufnehmen
+                Anfragen
               </a>
             </Link>
           </div>

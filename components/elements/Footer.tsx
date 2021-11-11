@@ -12,15 +12,19 @@ const footerNavigation = {
 
 export default function Footer(): JSX.Element {
   return (
-    <footer className="bg-gray-50" aria-labelledby="footer-heading">
+    <footer className="bg-gray-100" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
       <div className="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <div className="space-y-8 xl:col-span-2">
-           <div className="h-10 w-36 relative">
-            <Logo/>
+            <div className="flex">
+              <Logo />
+              <img
+                className="h-16 ml-8"
+                src="https://media.graphcms.com/s8EJuXI5QG67hILOq58X"
+              ></img>
             </div>
             <p className="text-gray-500 text-base">
               Wir bewerten die Qualität Ihrer Softwarelösung und geben
@@ -42,7 +46,8 @@ export default function Footer(): JSX.Element {
                     <a
                       href={item.href}
                       target={item.href.startsWith('http') ? '_blank' : '_self'}
-                      className="text-base text-gray-500 hover:text-gray-900" rel="noreferrer"
+                      className="text-base text-gray-500 hover:text-gray-900"
+                      rel="noreferrer"
                     >
                       {item.name}
                     </a>
@@ -61,9 +66,3 @@ export default function Footer(): JSX.Element {
     </footer>
   );
 }
-
-//TODO: Anpassungen aus Marketing-JF
-/*
-  - powered by fme neben Logo
-  - Brand name (entweder Rapid erklären/aufzeigen oder sonst ändern - Software Rapid review? #Ideensammlung dafür
- */
