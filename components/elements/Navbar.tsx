@@ -20,7 +20,7 @@ export function Navbar(): JSX.Element {
 
   return (
     <Popover as="header" className="relative">
-      <div className="bg-gray-900 pt-6 pb-3">
+      <div className="bg-dark-background pt-6 pb-3">
         <nav
           className="relative max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6"
           aria-label="Global"
@@ -58,9 +58,15 @@ export function Navbar(): JSX.Element {
                   </a>
                 </Link>
               ))}
-              <Button type="LinkButton" href="/contact">
-                Kontakt
-              </Button>
+              <Link key="LinkButton" href="/#contact">
+                <a
+                  className={
+                    'w-full text-center block px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700'
+                  }
+                >
+                  Kontakt
+                </a>
+              </Link>
             </div>
           </div>
         </nav>
@@ -105,13 +111,15 @@ export function Navbar(): JSX.Element {
                 ))}
               </div>
               <div className="mt-6 px-5">
-                <Button
-                  type="LinkButton"
-                  href="/contact"
-                  className="w-full text-center"
-                >
-                  Kontakt
-                </Button>
+                <Link key="LinkButton" href="/#contact">
+                  <a
+                    className={
+                      'w-full text-center block px-4 py-2 border border-gray-600 text-base font-medium rounded-md text-gray-600 bg-white hover:bg-gray-100 hover:border-gray-700'
+                    }
+                  >
+                    Kontakt
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

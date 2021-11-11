@@ -4,6 +4,7 @@ import {
   apiFindDefaultPageContent,
   PageProperty,
 } from '../api-functions/hero-sections';
+import Contact from '../components/elements/Contact';
 import { IHeroSection } from '../components/elements/HeroSection';
 import { Logo } from '../components/elements/LogoRow';
 import { Plan, Plans } from '../components/elements/Plans';
@@ -52,6 +53,7 @@ export default function Home({
     <PageLayout heroSection={heroSection} logoItems={logoItems}>
       {services && <Services services={services} />}
       {plans && <Plans plans={plans} />}
+      <Contact plans={plans} />
     </PageLayout>
   );
 }

@@ -50,7 +50,7 @@ export function HeroSection({
           <h1 className="mt-4 text-4xl tracking-tight font-extrabold text-gray-200 sm:mt-5 sm:text-6xl lg:mt-6 xl:text-6xl">
             <span className="block">{title}</span>
             {subTitle && (
-              <span className="pb-3 block bg-clip-text text-red-500 sm:pb-5">
+              <span className="pb-3 block text-transparent bg-clip-text bg-secondary sm:pb-5">
                 {subTitle}
               </span>
             )}
