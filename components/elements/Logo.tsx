@@ -17,8 +17,8 @@ export function Logo({
         className={height}
         src={
           fmeStyle === 'dark'
-            ? 'https://media.graphcms.com/3jS20SAXR2yfO6KQvJ8I'
-            : 'https://media.graphcms.com/is0CbEVFTqmhiaT8SSym'
+            ? 'https://media.graphcms.com/ojFvpvWBQqyBjYKaBASQ'
+            : 'https://media.graphcms.com/5TY8PdfnR0uk5LmCvMcT'
         }
       />
     </div>
